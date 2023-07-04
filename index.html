@@ -5,9 +5,8 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>Яндекс.Дом</title>
-    <script src="vendors/react-with-dom.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="reset.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.min.css">
 </head>
 <body>
 
@@ -34,7 +33,6 @@
     </div>
 </footer>
 
-<script src="vendors/babel.min.js" defer></script>
 <script type="text/babel">
     function Header() {
         let [expanded, setExpanded] = React.useState(false);
@@ -401,6 +399,7 @@
         );
     }, 100);
 </script>
-
+<script src="vendors/react-with-dom.js" defer></script>
+<script src="vendors/babel.min.js" defer></script>
 </body>
 </html>
