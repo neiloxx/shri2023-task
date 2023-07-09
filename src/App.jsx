@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import './App.css';
 
 function Header() {
   let [expanded, setExpanded] = useState(false);
