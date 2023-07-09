@@ -1,6 +1,9 @@
+import { useEffect, useRef, useState } from "react";
+import './App.css';
+
 function Header() {
-  let [expanded, setExpanded] = React.useState(false);
-  let [toggled, setToggled] = React.useState(false);
+  let [expanded, setExpanded] = useState(false);
+  let [toggled, setToggled] = useState(false);
 
   const onClick = () => {
     if (!toggled) {
@@ -156,12 +159,12 @@ for (let i = 0; i < 6; ++i) {
 const TABS_KEYS = ['all', 'kitchen', 'hall', 'lights', 'cameras'];
 
 function Main() {
-  const ref = React.useRef();
-  const initedRef = React.useRef(false);
-  const [activeTab, setActiveTab] = React.useState('');
-  const [hasRightScroll, setHasRightScroll] = React.useState(false);
+  const ref = useRef();
+  const initedRef = useRef(false);
+  const [activeTab, setActiveTab] = useState('');
+  const [hasRightScroll, setHasRightScroll] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!activeTab && !initedRef.current) {
       initedRef.current = true;
       setActiveTab(new URLSearchParams(location.search).get('tab') || 'all');
@@ -172,7 +175,7 @@ function Main() {
     setActiveTab(event.target.value);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const section = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
 
     const newHasRightScroll = section?.scrollWidth > section?.offsetWidth;
@@ -335,10 +338,8 @@ function Main() {
   </main>;
 }
 
-const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(
-  <>
+export const App = () =>
+  (<>
     <Header />
     <Main />
-  </>
-);
+  </>)
